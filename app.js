@@ -52,17 +52,6 @@ function falar(texto) {
 
     const vozes = window.speechSynthesis.getVoices();
 
-    const vozFemininaBrasileira = vozes.find(voice => 
-        voice.lang === 'pt-BR' && voice.name.includes('female')
-    );
-
-    if (vozFemininaBrasileira) {
-        utterance.voice = vozFemininaBrasileira;
-    } else {
-        const vozBrasileira = vozes.find(voice => voice.lang === 'pt-BR');
-        utterance.voice = vozBrasileira;
-    }
-
     window.speechSynthesis.speak(utterance);
 }
 window.speechSynthesis.onvoiceschanged = () => {
